@@ -6,22 +6,24 @@
 /*   By: tmuzeren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 11:49:48 by tmuzeren          #+#    #+#             */
-/*   Updated: 2019/05/22 17:24:36 by tmuzeren         ###   ########.fr       */
+/*   Updated: 2019/06/06 14:49:48 by tmuzeren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*convert(unsigned int digi, int num, int n)
+static char	*max(char *str)
+{
+	str[0] = '8';
+	return (str);
+}
+
+static char	*convert(unsigned int digi, int num, int n, char *str)
 {
 	unsigned int	rem;
 	unsigned int	i;
-	char			*str;
 
 	i = 0;
-	str = (char *)malloc((sizeof(char) * digi) + 1);
-	if (str == NULL)
-		return (NULL);
 	while (i < digi)
 	{
 		rem = num % 10;
@@ -35,6 +37,8 @@ static char	*convert(unsigned int digi, int num, int n)
 		i++;
 	}
 	str[i] = '\0';
+	if (n == -2147483648)
+		str = max(str);
 	return (str);
 }
 
@@ -51,6 +55,15 @@ char		*ft_itoa(int n)
 		num = -num;
 		digi--;
 	}
-	str = convert(digi, num, n);
+	if (!(str = ft_strnew(digi + 1)))
+		return (NULL);
+	if (n == -2147483648)
+	{
+		num = n + 1;
+		num = num * -1;
+	}
+	str = convert(digi, num, n, str);
+	if (n == 0)
+		str = "0";
 	return (ft_strrev(str));
 }
