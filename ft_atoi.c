@@ -6,9 +6,11 @@
 /*   By: tmuzeren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:29:59 by tmuzeren          #+#    #+#             */
-/*   Updated: 2019/05/21 12:04:55 by tmuzeren         ###   ########.fr       */
+/*   Updated: 2019/06/07 15:46:21 by tmuzeren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(char *str)
 {
@@ -19,7 +21,8 @@ int	ft_atoi(char *str)
 	i = 0;
 	sign = 1;
 	res = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r' || str[i] == ' ')
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r' || str[i] == ' '
+			|| str[i] == '\f' || str[i] == '\v' || str[i] == '\b')
 		i++;
 	if (str[i] == '-')
 		sign = -1;
