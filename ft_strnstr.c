@@ -6,7 +6,7 @@
 /*   By: tmuzeren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 10:02:56 by tmuzeren          #+#    #+#             */
-/*   Updated: 2019/06/10 16:59:32 by tmuzeren         ###   ########.fr       */
+/*   Updated: 2019/05/29 17:38:55 by tmuzeren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strnstr(const char *hay, const char *needle, size_t n)
 	while (hay[i] != '\0' && i < n)
 	{
 		j = 0;
-		while (hay[i + j] == needle[j])
+		while (hay[i + j] == needle[j] && (i + j) < n)
 		{
 			j++;
 			if (needle[j] == '\0')
