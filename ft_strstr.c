@@ -6,9 +6,11 @@
 /*   By: tmuzeren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 09:15:29 by tmuzeren          #+#    #+#             */
-/*   Updated: 2019/05/24 12:35:49 by tmuzeren         ###   ########.fr       */
+/*   Updated: 2019/06/07 15:50:03 by tmuzeren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strstr(const char *hay, const char *needle)
 {
