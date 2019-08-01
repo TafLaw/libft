@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmuzeren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 15:33:41 by tmuzeren          #+#    #+#             */
-/*   Updated: 2019/06/21 14:37:08 by tmuzeren         ###   ########.fr       */
+/*   Created: 2019/06/21 15:35:14 by tmuzeren          #+#    #+#             */
+/*   Updated: 2019/06/22 13:07:53 by tmuzeren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	if (as != NULL)
+	t_list	*list;
+
+	while (*alst)
 	{
-		free(*as);
-		*as = NULL;
+		list = (*alst)->next;
+		ft_lstdelone(alst, del);
+		*alst = list;
 	}
-	else
-		return ;
 }

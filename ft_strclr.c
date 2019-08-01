@@ -6,7 +6,7 @@
 /*   By: tmuzeren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 15:40:12 by tmuzeren          #+#    #+#             */
-/*   Updated: 2019/06/06 08:53:47 by tmuzeren         ###   ########.fr       */
+/*   Updated: 2019/06/21 14:39:00 by tmuzeren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void	ft_strclr(char *s)
 	if (s == NULL)
 		return ;
 	len = ft_strlen(s);
-	ft_bzero(s, len);
+	ft_memset(s, '\0', (sizeof(char) * len + 1));
 }

@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmuzeren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 15:33:41 by tmuzeren          #+#    #+#             */
-/*   Updated: 2019/06/21 14:37:08 by tmuzeren         ###   ########.fr       */
+/*   Created: 2019/06/22 12:46:38 by tmuzeren          #+#    #+#             */
+/*   Updated: 2019/06/22 12:54:12 by tmuzeren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+int	ft_isupper(int c)
 {
-	if (as != NULL)
-	{
-		free(*as);
-		*as = NULL;
-	}
-	else
-		return ;
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
 }

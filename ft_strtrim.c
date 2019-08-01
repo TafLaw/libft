@@ -6,7 +6,7 @@
 /*   By: tmuzeren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 10:36:10 by tmuzeren          #+#    #+#             */
-/*   Updated: 2019/06/10 17:08:45 by tmuzeren         ###   ########.fr       */
+/*   Updated: 2019/06/21 16:31:50 by tmuzeren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,24 @@
 
 char	*ft_strtrim(char const *s)
 {
-	char			*fresh;
-	unsigned int	i;
-	unsigned int	j;
+	size_t			i;
+	unsigned int	start;
 	unsigned int	len;
+	char			*new;
 
-	i = 0;
-	j = 0;
+	if (s == NULL)
+		return (NULL);
+	if (ft_strlen(s) == 0)
+		return ("");
+	start = 0;
 	len = ft_strlen(s) - 1;
-	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
-		i++;
-	if (s[i] == '\0')
-		return ((char *)s + i);
-	while (s[len] == ' ' || s[len] == '\t' || s[len] == '\n')
+	while ((s[start] == ' ' || s[start] == '\n' ||
+				s[start] == '\t') && (start < ft_strlen(s)))
+		start++;
+	while ((s[len] == ' ' || s[len] == '\n' ||
+				s[len] == '\t') && (len > start))
 		len--;
-	fresh = (char *)malloc(sizeof(char) * (len - i + 2));
-	if (fresh != NULL)
-	{
-		while (s[i + j] != '\0' && j < len - i + 1)
-		{
-			fresh[j] = s[i + j];
-			j++;
-		}
-	}
-	fresh[j] = '\0';
-	return (fresh);
+	i = len - start + 1;
+	new = ft_strsub(s, start, i);
+	return (new);
 }

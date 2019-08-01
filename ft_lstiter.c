@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmuzeren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/21 15:33:41 by tmuzeren          #+#    #+#             */
-/*   Updated: 2019/06/21 14:37:08 by tmuzeren         ###   ########.fr       */
+/*   Created: 2019/06/21 15:26:04 by tmuzeren          #+#    #+#             */
+/*   Updated: 2019/06/22 13:08:16 by tmuzeren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+void		ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	if (as != NULL)
+	if (lst && f)
 	{
-		free(*as);
-		*as = NULL;
+		while (lst != NULL)
+		{
+			f(lst);
+			lst = lst->next;
+		}
 	}
-	else
-		return ;
 }

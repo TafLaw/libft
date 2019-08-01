@@ -6,7 +6,7 @@
 /*   By: tmuzeren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 11:49:48 by tmuzeren          #+#    #+#             */
-/*   Updated: 2019/06/06 14:49:48 by tmuzeren         ###   ########.fr       */
+/*   Updated: 2019/06/21 16:39:25 by tmuzeren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,17 @@ char		*ft_itoa(int n)
 
 	digi = ft_digit_count(n);
 	num = n;
+	if (n == 0)
+	{
+		str = ft_strdup("0");
+		return (str);
+	}
 	if (num < 0)
 	{
 		num = -num;
 		digi--;
 	}
-	if (!(str = ft_strnew(digi + 1)))
+	if (!(str = ft_strnew(digi)))
 		return (NULL);
 	if (n == -2147483648)
 	{
@@ -63,7 +68,5 @@ char		*ft_itoa(int n)
 		num = num * -1;
 	}
 	str = convert(digi, num, n, str);
-	if (n == 0)
-		str = "0";
 	return (ft_strrev(str));
 }

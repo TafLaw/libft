@@ -6,7 +6,7 @@
 /*   By: tmuzeren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 13:55:26 by tmuzeren          #+#    #+#             */
-/*   Updated: 2019/05/30 12:48:11 by tmuzeren         ###   ########.fr       */
+/*   Updated: 2019/06/21 14:32:09 by tmuzeren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memalloc(size_t size)
 {
-	char	*str;
+	void	*str;
 
-	str = (char *)malloc((sizeof(char) * size));
+	str = (void *)malloc(size);
 	if (str == NULL)
 		return (NULL);
 	return (ft_memset(str, 0, size));
